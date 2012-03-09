@@ -16,8 +16,8 @@ require 'ccs.php';
 	#         module path => namespace
 			DOCROOT.'Henry' => 'foobar\\foo\\bar',
 			DOCROOT.'Bob' => 'bar',
-			DOCROOT.'Alice/core' => 'Alice\\core',
-			DOCROOT.'Alice/text' => 'Alice\\text',
+			DOCROOT.'Alice/core' => 'alice\\core',
+			DOCROOT.'Alice/text' => 'aLiCe\\text',
 		)
 	);
 

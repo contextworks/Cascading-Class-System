@@ -25,7 +25,7 @@ echo Greeter::happyHello('Alice').'<br>';
 /* Since this is not in \app the file is loaded directly. So \Alice\text\Text is
  * loaded and hello is called.
  */
-echo \Alice\text\Text::hello(\time()).'<br>';
+echo \alice\text\Text::hello(\time()).'<br>';
 // output: <H:m> hi
 
 /* Even though the above was loaded the \app version still points to the correct

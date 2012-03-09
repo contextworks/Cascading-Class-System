@@ -1,4 +1,4 @@
-<?php namespace Alice\core;
+<?php namespace alice\core;
 
 class Greeter
 {
@@ -10,4 +10,4 @@ class Greeter
 } # class
 
 // for demo purposes
-echo "Loaded \\Alice\\core\\Greeter<br>";
+echo "Loaded \\alice\\core\\Greeter<br>";

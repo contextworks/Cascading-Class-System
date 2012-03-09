@@ -63,7 +63,7 @@ final class Autoloader implements CCS_Edition1
 		self::$modules = $modules;
 
 		// namespace mapping
-		self::$namespaces = \array_flip($modules);
+		self::$namespaces = \array_change_key_case(\array_flip($modules), CASE_LOWER);
 		if (isset(self::$namespaces['app']))
 		{
 			// we consider the app value special, so it's invalid for our
@@ -82,8 +82,8 @@ final class Autoloader implements CCS_Edition1
 		
 		if ($ns_pos = \strripos($class_name, '\\')) 
 		{
-			$namespace = \substr($class_name, 0, $ns_pos);
-			$class_name = \substr($class_name, $ns_pos + 1);
+			$namespace = \strtolower(\substr($class_name, 0, $ns_pos));
+			$class_name = \strtolower(\substr($class_name, $ns_pos + 1));
 		}
 		else # class belongs to global namespace
 		{

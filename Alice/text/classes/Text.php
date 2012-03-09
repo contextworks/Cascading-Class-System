@@ -1,4 +1,4 @@
-<?php namespace Alice\text;
+<?php namespace alice\text;
 
 class Text
 {
@@ -10,4 +10,4 @@ class Text
 } # class
 
 // for demo purposes
-echo "Loaded \\Alice\\text\\Text<br>";
+echo "Loaded \\alice\\text\\Text<br>";

@@ -18,16 +18,16 @@ classes in Alice can not overwrite classes in Bob.
 Standard Definition, Edition 1
 ==============================
 
-1. The \app namespace is reserved and known as "the project namespace". It is an
-artificial clean global namespace.
+1. The \app namespace is reserved and known as "the project namespace". It is 
+meant as an clean artificial global namespace.
 
 2. Each module defines it's code in it's own UNIQUE namespace (eg. \foo\core, 
-\bar\database, etc), which is mapped to the module path. There is no 
+\bar\database, etc), which is mapped to the module's path. There is no 
 relationship between the path and the namespace other then that classes in the 
-path use the namespace they are mapped to. Each module must map to an 
-unique namespace, or the \app namespace, which is not restricted to one module. 
-Modules MAY choose to map to the \app namespace directly if they are SPECIFIC to 
-the project (ie. non-reusable, final, or not intended as reusable), to allow for 
+path use the namespace they are mapped to. Each module must map to an unique 
+namespace, or the \app namespace, which is not restricted to one module. Modules 
+MAY choose to map to the \app namespace directly if they are SPECIFIC to the 
+project (ie. non-reusable, final, or not intended as reusable), to allow for 
 simpler code by avoiding redundant namespace notation.
 
     * no class in the CCS should ever be defined global; the equivalent to 
@@ -36,7 +36,7 @@ simpler code by avoiding redundant namespace notation.
 3. The class name MUST map to a directory or file inside the /classes/ directory 
 of each module. If EXT is defined it will be used as the mapped file's 
 extention. eg. if EXT is defined as ".php" the class Foo_Bar_Foobar maps to the 
-classes/Foo/Bar/Foobar.php file, if EXT is not defined by default it will be 
+classes/foo/bar/foobar.php file, if EXT is not defined by default it will be 
 defined as ".php".
 
 4. When a class is loaded:
@@ -52,6 +52,10 @@ defined as ".php".
 	
 	* if the namespace of the requested class is the global namespace the 
 	autoloading process MUST fail imediatly
+	
+	* the class and namespace are always considered lowercase when computing the
+	path; so as to support default PHP behaviour (case insensitive namespace and 
+	classes)
 
 5. All logic MUST BE designed to work as if the \app namespace is the ONLY 
 namespace that exists. Classes should never rely on any other namespace, not 
