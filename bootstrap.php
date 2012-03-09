@@ -14,9 +14,10 @@ require 'ccs.php';
 		array
 		(
 	#         module path => namespace
-			DOCROOT.'bar' => 'bar',
-			DOCROOT.'foo' => 'foo\bar',
-			DOCROOT.'my'  => 'app',
+			DOCROOT.'Henry' => 'foobar\\foo\\bar',
+			DOCROOT.'Bob' => 'bar',
+			DOCROOT.'Alice/core' => 'Alice\\core',
+			DOCROOT.'Alice/text' => 'Alice\\text',
 		)
 	);
 
