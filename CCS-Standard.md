@@ -35,7 +35,7 @@ classes/Foo/Bar/Foobar.
 4. When a class is loaded:
 
     a) if the namespace is \app then the class is in the project namespace and 
-    the autoloader MUST look into the CFS for the first file matching the 
+    the autoloader MUST look into the CCS for the first file matching the 
     Class_Name pattern, load it and if the module from which it was loaded was 
     not mapped to the \app namespace define a class_alias for it from the 
     module's namespace to the \app namespace.
