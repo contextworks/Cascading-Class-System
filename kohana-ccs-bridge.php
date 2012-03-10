@@ -162,5 +162,13 @@ final class Kohana_Autoloader_Bridge
 		}
 	}
 	
+	/**
+	 * @return array paths
+	 */
+	public static function paths()
+	{
+		return \array_keys(self::$bridges);
+	}
+	
 } # class
 

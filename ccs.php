@@ -24,6 +24,11 @@ interface CCS_Edition1
 	 */
 	static function auto_load($class);
 	
+	/**
+	 * @return array paths
+	 */
+	static function paths();
+	
 } # interface
 	
 /**
@@ -134,6 +139,14 @@ final class Autoloader implements CCS_Edition1
 				return false;
 			}
 		}
+	}
+	
+	/**
+	 * @return array paths
+	 */
+	public static function paths()
+	{
+		return \array_keys(self::$modules);
 	}
 	
 } # class
