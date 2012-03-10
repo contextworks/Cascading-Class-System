@@ -117,14 +117,22 @@ final class Autoloader implements CCS_Edition1
 			// didn't find the file
 			return false;
 		}
-		else # non app namespace
+		else # non \app namespace
 		{
-			require self::$namespaces[$namespace].DIRECTORY_SEPARATOR
-			      . 'classes'.DIRECTORY_SEPARATOR
-			      . \str_replace('_', DIRECTORY_SEPARATOR, $class_name).EXT;
+			if (isset(self::$namespaces[$namespace]))
+			{
+				require self::$namespaces[$namespace].DIRECTORY_SEPARATOR
+					  . 'classes'.DIRECTORY_SEPARATOR
+					  . \str_replace('_', DIRECTORY_SEPARATOR, $class_name).EXT;
 
-			// success
-			return true;
+				// success
+				return true;
+			}
+			else # unknown namespace
+			{
+				// failed to find class
+				return false;
+			}
 		}
 	}
 	
