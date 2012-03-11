@@ -174,7 +174,7 @@ final class Kohana_Autoloader_Bridge
 			$dir_paths .= \rtrim($path, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
 		}
 		
-		return $dir_apths;
+		return $dir_paths;
 	}
 	
 } # class
