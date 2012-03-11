@@ -87,4 +87,4 @@ merely a trap for the IDEs crawler and serves to wise up it's autocomplete
 system. IDEs like Netbeans will then show the methods when accessing via the 
 \app version along with the namespace from which they are from.
 
-That's all there is to it!
+That's all there is to it.
