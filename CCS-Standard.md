@@ -66,3 +66,25 @@ is making use of a static method within itself it should ALWAYS use the
 keyword for methods with public and protected access and the self keyword for 
 members with private access, and NEVER the class name; thus allow for extension 
 of the class to a different name with out breaking it.
+
+IDE Support
+===========
+
+The standard is fully compatible with IDEs. There are a few ways to work with
+IDEs including creating a autocomplete provider. The following describes 
+only the recommended method of achieving cross-IDE autocomplete.
+
+First off, you should always work in the \app namespace. Modules you define 
+directly in the \app namespace will just work with IDEs since the mapping is 
+obvious.
+
+When working with non \app files you need to tell the IDE the class can map to
+the \app equivalent. To do this we recommend creating a honeypot.php file at the
+route of every module that requires it. This duty should fall on the party 
+responsible for creating the module, not the users of the module. In it include 
+all the mappings you want. The file is not loaded by the system in any way, it's 
+merely a trap for the IDEs crawler and serves to wise up it's autocomplete 
+system. IDEs like Netbeans will then show the methods when accessing via the 
+\app version along with the namespace from which they are from.
+
+That's all there is to it!
