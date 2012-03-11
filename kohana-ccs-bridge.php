@@ -171,7 +171,7 @@ final class Kohana_Autoloader_Bridge
 		$dir_paths = array();
 		foreach ($paths as $path)
 		{
-			$dir_paths .= \rtrim($path, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
+			$dir_paths[] = \rtrim($path, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
 		}
 		
 		return $dir_paths;
