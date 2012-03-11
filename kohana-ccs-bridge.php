@@ -167,7 +167,14 @@ final class Kohana_Autoloader_Bridge
 	 */
 	public static function paths()
 	{
-		return \array_keys(self::$bridges);
+		$paths = \array_keys(self::$bridges);
+		$dir_paths = array();
+		foreach ($paths as $path)
+		{
+			$dir_paths .= \rtrim($path, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
+		}
+		
+		return $dir_apths;
 	}
 	
 } # class

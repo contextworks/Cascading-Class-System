@@ -3,7 +3,7 @@
 \define('DOCROOT', \realpath(\dirname(__FILE__)).DIRECTORY_SEPARATOR);
 
 // standard's example implementation
-require 'ccs.php';
+require '../ccs.php';
 
 // register autoloader
 \spl_autoload_register(array('\\app\\Autoloader', 'auto_load'));
