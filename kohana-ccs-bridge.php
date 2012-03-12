@@ -108,7 +108,35 @@ final class Kohana_Autoloader_Bridge
 				}
 			}
 			
-			return self::prefix_check($class_name);
+			if (self::prefix_check($class_name))
+			{
+				// found class
+				return true;
+			}
+			else # failed to find class
+			{
+				// if we reach this point and we still haven't found the class 
+				// there's one other posibility and that's that the bridged code 
+				// is trying to invoke code in global namespace, 
+				// eg. Controller_Something. 
+				
+				// We need to check if we can load the class then alias it to
+				// the namespace in question. To do this we invoke the top level
+				// autoloader, like so...
+				if (\class_exists("app\\$class_name"))
+				{
+					// now the correct class is loaded, we use black magic on it
+					// so the bridged code understands it
+					\class_alias("app\\$class_name", $class_name);
+					
+					// success
+					return true;
+				}
+				else # we have no clue what this class is
+				{
+					return false;
+				}
+			}
 		}
 		
 		if ($namespace === 'app')
@@ -171,7 +199,7 @@ final class Kohana_Autoloader_Bridge
 		$dir_paths = array();
 		foreach ($paths as $path)
 		{
-			$dir_paths .= \rtrim($path, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
+			$dir_paths[] = \rtrim($path, DIRECTORY_SEPARATOR).DIRECTORY_SEPARATOR;
 		}
 		
 		return $dir_paths;
